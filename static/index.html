@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preventual - System Health</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <!-- Top Navbar -->
+    <header class="navbar">
+        <div class="navbar-brand">
+            <img src="/static/images/preventual-white-logo-full.png" alt="Preventual Logo" class="logo-img" onerror="this.style.display='none'; document.getElementById('logoFallback').style.display='inline-block';">
+            <span id="logoFallback" class="logo-fallback" style="display: none;">Prevent<span>ual</span></span>
+        </div>
+        <div id="navStatusBadge" class="nav-status-badge healthy">
+            <span class="pulse-dot"></span>
+            <span id="navStatusText">Checking Systems...</span>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="container">
+        <div class="page-header">
+            <div>
+                <h1 class="page-title">Internal Services Health</h1>
+                <p class="page-subtitle">Live status of internal processing pipelines, orchestrators, and databases</p>
+            </div>
+            <div class="header-actions">
+                <span id="lastUpdatedText" class="updated-time"></span>
+                <button class="btn-refresh" id="refreshBtn">
+                    <i class="fa-solid fa-arrows-rotate" id="refreshIcon"></i>
+                    <span id="refreshBtnText">Refresh</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Summary KPIs -->
+        <div class="kpi-row">
+            <div class="kpi-card">
+                <div class="kpi-label">Monitored Services</div>
+                <div class="kpi-value" id="kpiTotal">5</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-label">Operational</div>
+                <div class="kpi-value green" id="kpiOperational">-</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-label">Active DAGs</div>
+                <div class="kpi-value blue" id="kpiActiveDags">-</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-label">Active Spark Workers</div>
+                <div class="kpi-value teal" id="kpiSparkWorkers">-</div>
+            </div>
+        </div>
+
+        <!-- 6 Services Grid -->
+        <div id="servicesContainer" class="services-grid">
+            <div class="loading-state">Loading live status...</div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        Preventual Orbit &copy; 2026 Acies Global. All internal services monitored live.
+    </footer>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>
